@@ -43,3 +43,4 @@ uint16_t scales[NSCALES][2] = {\
     // DYMO 1772057 Digital Postal Scale
     {0x0922, 0x8003}
 };
+

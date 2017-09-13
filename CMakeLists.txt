@@ -1,8 +1,12 @@
 cmake_minimum_required(VERSION 3.8)
-project(usbscale)
+project(thruster_load_test)
+
 set(CMAKE_CXX_STANDARD 11)
-set(SRCS lsusb.c
-         usbscale.c)
-add_executable(usbscale usbscale.c)
-add_executable(lusb lsusb.c scales.h )
-target_link_libraries(usbscale m usb-1.0)
+
+set(THRUSTERLOADTEST_SRCS include/usbscale.h src/thruster_load_test.cpp src/usbscale.cpp)
+
+add_executable(thruster_load_test ${THRUSTERLOADTEST_SRCS})
+# Used internally by usbscale
+add_executable(lusb src/lsusb.c include/scales.h)
+
+target_link_libraries(thruster_load_test m usb-1.0)
